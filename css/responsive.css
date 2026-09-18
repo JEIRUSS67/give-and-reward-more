@@ -1,0 +1,89 @@
+/* =========================================================
+   GIVE AND REWARD MORE — Responsive overrides
+   Mobile styles live in style.css; this file layers on
+   tablet and desktop refinements.
+   ========================================================= */
+
+/* ---------- Tablet: 700px+ ---------- */
+@media (min-width: 43.75em) {
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  .help-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(3, 1fr); }
+  .story-grid { grid-template-columns: repeat(2, 1fr); }
+  .support-type-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .need-row {
+    grid-template-columns: 56px 1fr auto;
+  }
+}
+
+/* ---------- Desktop: 64em (1024px)+ ---------- */
+@media (min-width: 64em) {
+  .container { padding-inline: var(--space-4); }
+
+  /* Nav switches from drawer to inline bar */
+  .nav__toggle { display: none; }
+  .nav__panel {
+    position: static;
+    inset: auto;
+    transform: none;
+    background: none;
+    padding: 0;
+    flex-direction: row;
+    align-items: center;
+    overflow: visible;
+    width: auto;
+  }
+  .nav__panel-top { display: none; }
+  .nav__links {
+    flex-direction: row;
+    gap: var(--space-3);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .nav__links a {
+    border-bottom: 2px solid transparent;
+    padding: 0.3em 0.1em;
+  }
+  .nav__links a:hover,
+  .nav__links a[aria-current="page"] {
+    border-bottom-color: var(--color-green);
+  }
+  .nav__cta { margin-top: 0; margin-left: var(--space-3); }
+
+  .hero__grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    align-items: center;
+  }
+  .hero__media { order: 2; }
+
+  .split { grid-template-columns: 1fr 1fr; }
+
+  .stats { grid-template-columns: repeat(4, 1fr); }
+
+  .need-list { border-top: none; }
+  .need-row {
+    grid-template-columns: 64px 1fr 200px;
+    gap: var(--space-3);
+  }
+
+  .help-grid { grid-template-columns: repeat(4, 1fr); }
+  .story-grid { grid-template-columns: repeat(3, 1fr); }
+  .value-list { grid-template-columns: repeat(3, 1fr); }
+  .gallery-grid { grid-template-columns: repeat(4, 1fr); }
+
+  .footer-grid {
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  }
+
+  .form-grid.form-grid--two {
+    grid-template-columns: 1fr 1fr;
+  }
+  .form-grid.form-grid--two .field--full { grid-column: 1 / -1; }
+}
+
+/* ---------- Large desktop: 80em (1280px)+ ---------- */
+@media (min-width: 80em) {
+  .hero__grid { grid-template-columns: 1fr 1fr; }
+}

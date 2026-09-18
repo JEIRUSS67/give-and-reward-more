@@ -1,0 +1,32 @@
+# =========================================================
+# GIVE AND REWARD MORE — root .htaccess
+# =========================================================
+
+# Never list directory contents
+Options -Indexes
+
+# Block access to dotfiles and common source-control artifacts
+<FilesMatch "^\.">
+  Require all denied
+</FilesMatch>
+
+# Block direct access to the raw SQL schema from the web
+<FilesMatch "\.sql$">
+  Require all denied
+</FilesMatch>
+
+# Basic security headers
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "geolocation=(), camera=(), microphone=()"
+</IfModule>
+
+# Force HTTPS if the server is configured for it (uncomment once a
+# valid TLS certificate is installed on the production host)
+# <IfModule mod_rewrite.c>
+#   RewriteEngine On
+#   RewriteCond %{HTTPS} off
+#   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+# </IfModule>

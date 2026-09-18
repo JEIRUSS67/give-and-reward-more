@@ -1,0 +1,6 @@
+# These files are includes only — they should never be requested
+# directly by a browser. contact.php and support.php are the public
+# form endpoints and are intentionally left accessible.
+<FilesMatch "^(config|database|helpers|auth)\.php$">
+  Require all denied
+</FilesMatch>
